@@ -1,13 +1,11 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-    <h1>Post</h1>
+    <h1>User Admin</h1>
     <ul>
-        {% for post in posts %}
-            <li>
-                <b>{{post.name}}</b>
-                <p>{{post.content}}</p>
-            </li>
-        {% endfor %}
+                <b>{{user.name}}</b>
+                <b>{{user.username}}</b>
+                <b>{{user.roles | json_encode}}</b>
+                <b>{{user.password}}</b>
     </ul>
 {% endblock %}

@@ -296,6 +296,16 @@
 					<li> Teclee el comando "docker-compose up"; </li>
 					<li> Cuando la pantalla haya dejado de imprimir mensajes, abra un navegador y teclee "http://localhost";</li>
 				</ol>
+				<h2> Antes de ejecutar el paso 5</h2>
+				<p> Antes de abrir un navegador, tendrá que realizar unos pasos previamente:</p>
+				<ol>
+					<li>Prerrequisito: el docker está ejecutándose antes de dar el siguiente paso;</li>
+					<li>Configure un programa para acceder a la base datos con la cadena de conexión que econtrará en el fichero /src/.env;</li>
+					<li>Una vez que se ha conectado a la base de datos 'symfony', borre todos los registros de la tabla 'migration_versions';</li>
+					<li>Ejecute nuevamente el comando "docker-compose up";</li>
+					<li>Al final de la ejecución de este último comando, deberá ver que se ha ejecutado una migración de datos; si es así, ejecute el siguiente paso;</li>
+					<li> Cuando la pantalla haya parado de imprimir mensajes, abra un navegador y teclee "http://localhost";</li>
+				</ol>
 				<p> Introduzca los datos necesarios para acceder a la aplicación. Estos pasos están indicados en el siguiente <a href="../inicio/interaccion.html">paso</a>.</p>
 				<!-- /info blocks -->
 			</div>

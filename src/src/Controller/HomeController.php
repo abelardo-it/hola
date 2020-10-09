@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -13,12 +14,12 @@ class HomeController extends AbstractController
      * @Route("/", name="")
      * @Template
      */
-    public function index(PostRepository $postRepository)
+    public function index(UserRepository $userRepository)
     {
-        $posts = $postRepository->findAll();
+        $user = $userRepository->findOneBy([ 'name' => 'Admin']);
 
         return [
-            'posts' => $posts
+            'user' => $user
         ];
     }
 }
