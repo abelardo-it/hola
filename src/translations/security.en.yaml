@@ -1,0 +1,3 @@
+"Username could not be found.": "El usuario no existe"
+"Invalid CSRF token.": "El token no es válido"
+"Invalid credentials.": "Las credenciales no son correctas"

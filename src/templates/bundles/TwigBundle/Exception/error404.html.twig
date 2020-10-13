@@ -1,0 +1,17 @@
+{% extends "/bundles/TwigBundle/Exception/base.html.twig" %}
+ {% block body %}
+	<!-- Container -->
+	<div class="flex-fill">
+		<div class="text-center mb-3">
+			<img src="{{ asset('assets/img/logoHolaCOM.png') }}" alt="" width="256" height="256">
+		</div>
+		<!-- Error title -->
+		<div class="text-center mb-3">
+			<h1 class="error-title">404</h1>
+			<h5>¡Vaya, cuánto sentimos no encontrar la página que buscaba!</h5>
+		</div>
+		<!-- /error title -->
+
+	</div>
+	<!-- /container -->
+{% endblock %}

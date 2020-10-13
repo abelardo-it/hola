@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -16,27 +15,27 @@ class User implements UserInterface
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      */
-    private $name = '';
+    private string $name = '';
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private string $password = '';
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
      */
-    private $password = '';
-
-    /**
-     * @ORM\Column(type="string", length=180, unique=true)
-     */
-    private $username = '';
+    private string $username = '';
 
     /**
      * @ORM\Column(type="json")
      */
-    private $roles = [];
+    private array $roles = [];
 
     public function getId(): ?int
     {
@@ -50,7 +49,7 @@ class User implements UserInterface
      */
     public function getName(): string
     {
-        return (string) $this->name;
+        return $this->name;
     }
 
     public function setName(string $name): self
@@ -67,7 +66,7 @@ class User implements UserInterface
      */
     public function getUsername(): string
     {
-        return (string) $this->username;
+        return $this->username;
     }
 
     public function setUsername(string $username): self
@@ -105,6 +104,8 @@ class User implements UserInterface
     }
 
     /**
+     * @param string $newPassword
+     * @return User
      * @see UserInterface
      */
     public function setPassword(string $newPassword): self
@@ -116,17 +117,15 @@ class User implements UserInterface
     /**
      * @see UserInterface
      */
-    public function getSalt()
+    public function getSalt(): void
     {
-        // not needed for apps that do not check user passwords
+        // not needed when using bcrypt or argon
     }
 
     /**
      * @see UserInterface
      */
-    public function eraseCredentials()
+    public function eraseCredentials(): void
     {
-        // If you store any temporary, sensitive data on the user, clear it here
-        // $this->plainPassword = null;
     }
 }
